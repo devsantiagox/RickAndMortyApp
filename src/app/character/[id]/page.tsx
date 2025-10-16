@@ -7,9 +7,9 @@ import Header from '@/components/Header';
 import ProtectedRoute from '@/components/auth/ProtectedRoute';
 
 interface CharacterPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
 export default async function CharacterPage({ params }: CharacterPageProps) {
@@ -18,7 +18,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
     try {
         const resolvedParams = await params;
         character = await getCharacter(parseInt(resolvedParams.id));
-    } catch (error) {
+    } catch {
         notFound();
     }
 

@@ -4,7 +4,7 @@ import { useConnectionStatus } from '@/hooks/useConnectionStatus';
 import { useState, useEffect } from 'react';
 
 export default function ConnectionStatus() {
-    const { isOnline, connectionQuality, isSlowConnection } = useConnectionStatus();
+    const { isOnline, isSlowConnection } = useConnectionStatus();
     const [showNotification, setShowNotification] = useState(false);
     const [previousStatus, setPreviousStatus] = useState<'online' | 'offline'>('online');
 
@@ -34,17 +34,17 @@ export default function ConnectionStatus() {
     return (
         <div className="fixed top-4 right-4 z-[10001] max-w-sm">
             <div className={`p-4 rounded-lg shadow-lg border-l-4 ${!isOnline
-                    ? 'bg-red-50 border-red-500 text-red-800'
-                    : isSlowConnection
-                        ? 'bg-yellow-50 border-yellow-500 text-yellow-800'
-                        : 'bg-green-50 border-green-500 text-green-800'
+                ? 'bg-red-50 border-red-500 text-red-800'
+                : isSlowConnection
+                    ? 'bg-yellow-50 border-yellow-500 text-yellow-800'
+                    : 'bg-green-50 border-green-500 text-green-800'
                 }`}>
                 <div className="flex items-center gap-3">
                     <div className={`w-3 h-3 rounded-full ${!isOnline
-                            ? 'bg-red-500'
-                            : isSlowConnection
-                                ? 'bg-yellow-500'
-                                : 'bg-green-500'
+                        ? 'bg-red-500'
+                        : isSlowConnection
+                            ? 'bg-yellow-500'
+                            : 'bg-green-500'
                         }`}></div>
 
                     <div className="flex-1">

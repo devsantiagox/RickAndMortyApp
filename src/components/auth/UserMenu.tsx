@@ -2,7 +2,7 @@
 
 import { useAuthStore } from '@/store/authStore';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface UserMenuProps {
     isOpen: boolean;

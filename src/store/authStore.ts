@@ -217,7 +217,7 @@ export const useAuthStore = create<AuthStore>()(
                 'auth/checkAuthFailed'
               );
             }
-          } catch (error) {
+          } catch {
             // Token inválido o error, limpiar estado
             set(
               { user: null, token: null, isAuthenticated: false },

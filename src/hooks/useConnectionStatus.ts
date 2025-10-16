@@ -34,7 +34,7 @@ export function useConnectionStatus() {
         } else {
           setConnectionQuality('poor');
         }
-      } catch (error) {
+      } catch {
         setConnectionQuality('poor');
       }
     };

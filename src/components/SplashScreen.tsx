@@ -45,7 +45,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
         }, 1000);
 
         return () => clearInterval(textInterval);
-    }, [mounted]);
+    }, [mounted, loadingTexts.length]);
 
     return (
         <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center z-50">

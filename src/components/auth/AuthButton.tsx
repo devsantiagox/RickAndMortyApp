@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import UserMenu from './UserMenu';
 
 export default function AuthButton() {
-    const { user, isAuthenticated, logout, checkAuth } = useAuthStore();
+    const { user, isAuthenticated, checkAuth } = useAuthStore();
     const router = useRouter();
     const [showMenu, setShowMenu] = useState(false);
     const [mounted, setMounted] = useState(false);

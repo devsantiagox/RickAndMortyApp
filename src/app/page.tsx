@@ -7,13 +7,14 @@ import LoadingSpinner from '@/components/LoadingSpinner';
 import ErrorBoundary from '@/components/ErrorBoundary';
 
 interface HomeProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-  const currentPage = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+  const currentPage = parseInt(params.page || '1');
   let characters: CharactersResponse | null = null;
   let error: string | null = null;
 
