@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import AuthButton from './auth/AuthButton';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,9 +12,9 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-gradient-to-r from-purple-900 via-blue-900 to-indigo-900 shadow-2xl relative overflow-hidden">
+        <header className="bg-gradient-to-r from-purple-900 via-blue-900 to-indigo-900 shadow-2xl relative">
             {/* Animated background elements */}
-            <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-400/10 rounded-full animate-pulse"></div>
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-blue-400/10 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-purple-400/10 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -51,6 +52,7 @@ export default function Header() {
                             GitHub
                             <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-300 group-hover:w-full transition-all duration-300"></div>
                         </a>
+                        <AuthButton />
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -75,8 +77,8 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Menu */}
-                <div className={`md:hidden mt-4 transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className={`md:hidden mt-4 transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 space-y-4">
                         <a
                             href="https://github.com/devsantiagox"
                             target="_blank"
@@ -89,6 +91,9 @@ export default function Header() {
                             </svg>
                             <span>GitHub</span>
                         </a>
+                        <div className="pt-2 border-t border-white/20">
+                            <AuthButton />
+                        </div>
                     </div>
                 </div>
             </div>
